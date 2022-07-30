@@ -25,11 +25,11 @@ MockProductsDB db = new MockProductsDB();
 while (appRunning)
 {
     Console.WriteLine("Hello! What would you like to do?\n\n" +
-        "Create a Product:   (Enter: p)\n" +
+        "Create a Product:   (Enter: c)\n" +
         "List all products:  (Enter: a\n" +
-        "Exit App:          (Enter: x)");
+        "Exit App:           (Enter: x)");
     string decision = Console.ReadLine().ToLower();
-    if (decision == "p")
+    if (decision == "c")
     {
         Product newProduct = new Product(
             ProductBuilder.SetProductName(),
@@ -49,7 +49,9 @@ while (appRunning)
     {
         foreach(Product p in db.GetAllProducts())
         {
-            Console.WriteLine($"{p.Name} is a {p.Type} product.\nIt costs ${p.Price}.\nDescription: {p.Description}\n***************************\n");
+                    
+Console.WriteLine($"{p.Name} is a {p.Type} product.\nIt costs ${p.Price}.\nDescription: {p.Description}\n\n" +
+    $"************************************************************************************\n");
         }
     }
     else if (decision == "s")
@@ -61,21 +63,23 @@ while (appRunning)
         }
         string selectedProduct1 = Console.ReadLine();
         string selectedProduct2 = Console.ReadLine();
-        Product[] productToSum = new Product[2];
-        foreach (Product p in db.GetAllProducts())
-        {
-            
-            if(selectedProduct1 == p.Name)
-            {
-                productToSum[0] = db.GetProduct(selectedProduct1);
-            }
-            if (selectedProduct2 == p.Name)
-            {
-                productToSum[1] = db.GetProduct(selectedProduct2);
-            }
-        }
-        decimal sum = db.SumProducts(productToSum[0], productToSum[0]);
-        Console.WriteLine($"The total price of {productToSum[0].Name} and {productToSum[1].Name} is {sum}");
+        decimal sum = db.SumProducts(selectedProduct1, selectedProduct2);
+        
+        //Product[] productToSum = new Product[2];
+        //foreach (Product p in db.GetAllProducts())
+        //{
+
+        //    if(selectedProduct1 == p.Name)
+        //    {
+        //        productToSum[0] = db.GetProduct(selectedProduct1);
+        //    }
+        //    if (selectedProduct2 == p.Name)
+        //    {
+        //        productToSum[1] = db.GetProduct(selectedProduct2);
+        //    }
+        //}
+        //decimal sum = db.SumProducts(productToSum[0], productToSum[0]);
+        //Console.WriteLine($"The total price of {productToSum[0].Name} and {productToSum[1].Name} is {sum}");
     }
     else
     {

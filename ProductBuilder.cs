@@ -30,7 +30,7 @@ namespace ProductManagementSystem
                     typeSelector++;
                 }
                 selectedType = Console.ReadLine();
-                if (Convert.ToUInt32(selectedType) > typeSelector || Convert.ToUInt32(selectedType) < 0)
+                if (Convert.ToUInt32(selectedType) > typeSelector || Convert.ToUInt32(selectedType) < 0 || selectedType == "")
                 {
                     Console.WriteLine("Please eneter a valid command");
                 }
@@ -54,8 +54,14 @@ namespace ProductManagementSystem
             while (productPrice == 0.00m)
             {
                 Console.WriteLine("Enter a product price");
-                productPrice = Convert.ToDecimal(Console.ReadLine());
-
+                decimal enteredPrice = Convert.ToDecimal(Console.ReadLine());
+                if (enteredPrice <= 0.00m || enteredPrice == 0.00m)
+                {
+                    Console.WriteLine("The price cannot be negative or zero. Try again.");
+                    enteredPrice = Convert.ToDecimal(Console.ReadLine());
+                }
+                string formatPrice = enteredPrice.ToString("0.00");
+                productPrice = Convert.ToDecimal(formatPrice);
             }
             return productPrice;
         }
