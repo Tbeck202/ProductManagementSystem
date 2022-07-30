@@ -41,10 +41,6 @@ namespace ProductManagementSystem
 
         public decimal SumProducts(Product product1, Product product2)
         {
-            foreach (Product p in Products)
-            {
-
-            }
             return product1.Price + product2.Price;
         }
     }
