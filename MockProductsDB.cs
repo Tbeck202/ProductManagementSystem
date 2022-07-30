@@ -41,25 +41,11 @@ namespace ProductManagementSystem
                 Product? productSearch1 = Products.Find(Product => Product.Name == product1);
                 Product? productSearch2 = Products.Find(Product => Product.Name == product2);
 
-                Console.WriteLine($"The total price of {productSearch1.Name} and {productSearch2.Name} is {productSearch1.Price + productSearch2.Price}");
+                //Console.WriteLine($"The total price of {productSearch1.Name} and {productSearch2.Name} is {productSearch1.Price + productSearch2.Price}");
                 return productSearch1.Price + productSearch2.Price;
             }
-            Console.WriteLine("Sorry, we couldn't find your items");
-            //Product[] productToSum = new Product[2];
-            //foreach (Product p in Products)
-            //{
-
-            //    if (product1 == p.Name)
-            //    {
-            //        //productToSum[0] = db.GetProduct(selectedProduct1);
-            //    }
-            //    if (selectedProduct2 == p.Name)
-            //    {
-            //        productToSum[1] = db.GetProduct(selectedProduct2);
-            //    }
-            //}
-            //decimal sum = db.SumProducts(productToSum[0], productToSum[0]);
-            //return product1.Price + product2.Price;
+            //Console.WriteLine("Sorry, we couldn't find your items");
+            
             return 0.00m;
         }
     }
